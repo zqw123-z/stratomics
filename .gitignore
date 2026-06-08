@@ -1,0 +1,32 @@
+# Data & results (never commit real data or analysis outputs)
+data/
+results/
+results_demo/
+# Generated demo data — regenerate with: python examples/make_synthetic.py
+examples/synthetic/
+*.h5ad
+*.h5
+*.rds
+*.RData
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,28 @@
+# Example pipeline configuration for stratomics.
+#
+# Every path, gene set, and parameter below is supplied by you — the framework
+# embeds none of them. This example points at the synthetic demo data generated
+# by `python examples/make_synthetic.py`. Replace the paths and gene sets with
+# your own to analyse real data.
+#
+# Paths are resolved relative to THIS config file.
+
+expr:        ../examples/synthetic/expr.csv        # features-by-samples matrix
+genesets:    ../examples/synthetic/genesets.yaml   # signatures to score & cluster on
+immune_sets: ../examples/synthetic/genesets.yaml   # landscape sets (optional; here reused)
+clinical:    ../examples/synthetic/clinical.csv    # per-sample outcome table (optional)
+
+output: ../results_demo                             # all tables + figures go here
+
+score:
+  method: ssgsea          # ssgsea | mean_z | rankmean
+
+cluster:
+  max_k: 6                # consider k = 2..max_k, pick best by silhouette
+  n_resample: 50          # consensus resampling iterations
+  resample_frac: 0.8
+  seed: 0
+
+survival:
+  time: OS_time           # column name in the clinical table
+  event: OS_event         # 1 = event occurred, 0 = censored
